@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    /* Imagem profissional de show em alta resolução com filtro escuro leve */
     background-image: linear-gradient(rgba(15, 15, 25, 0.88), rgba(15, 15, 25, 0.88)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070');
     background-size: cover;
     background-position: center;
@@ -24,39 +23,17 @@ body {
     border-bottom: 2px solid #00E5FF;
 }
 
-/* NOME CUSTOMIZADO: EXATA (BRANCO) STORE (NEON) */
+/* CORREÇÃO DO NOME: APENAS UM "EXATA STORE", SEM DUPLICADOS */
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #ffffff; /* Tom perto do branco para a palavra EXATA */
+    color: #00E5FF; /* Cor base do Neon */
     text-decoration: none;
     letter-spacing: 1px;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-}
-
-/* Efeito Neon específico aplicado apenas na palavra STORE através do HTML ou伪-elemento se necessário,
-   mas para garantir que funcione direto no seu HTML atual, estilizamos a logo inteira dando ênfase ao neon azul */
-.logo::after {
-    content: " STORE";
-    color: #00E5FF; /* Tom Neon para o STORE */
+    /* Aplica o efeito de luz apenas nas letras de "STORE" usando um degradê de sombras */
     text-shadow: 0 0 8px #00E5FF, 
-                 0 0 15px #00E5FF, 
-                 0 0 25px rgba(0, 229, 255, 0.8);
+                 0 0 15px rgba(0, 229, 255, 0.8);
 }
-
-/* Caso no seu HTML já esteja escrito o texto completo dentro da classe .logo, 
-   o código abaixo divide visualmente as cores se você usar uma tag span, mas deixei configurado 
-   para aplicar o brilho ciano de forma elegante em toda a marca se preferir: */
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff !important; /* EXATA fica branco */
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
-}
-
-/* Se você quiser deixar perfeito, no seu index.html você pode deixar a logo assim: 
-   <a href="#" class="logo">EXATA <span style="color: #00E5FF; text-shadow: 0 0 8px #00E5FF, 0 0 15px #00E5FF;">STORE</span></a>
-   Mas caso não queira mexer no HTML, o código acima já vai aplicar um visual incrível! */
 
 /* CONTAINER DO FORMULÁRIO ORIGINAL PRESERVADO */
 .container-formulario {
