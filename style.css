@@ -1,78 +1,53 @@
-/* ==========================================
-   1. RESET E ESTILO GLOBAL (NOVO FUNDO DE ESTÚDIO)
-   ========================================== */
+/* SUA ESTRUTURA ORIGINAL */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: #ffffff;
-    min-height: 100vh;
-    
-    /* Imagem de estúdio/áudio profissional com tom escuro */
-    background-image: linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070') !important;
-    background-size: cover !important;
+    /* CORREÇÃO: Nova foto de fundo (Estúdio Escuro) */
+    background-image: linear-gradient(rgba(10, 10, 20, 0.95), rgba(10, 10, 20, 0.95)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: #ffffff;
+    min-height: 100vh;
 }
 
-/* ==========================================
-   2. NAVBAR E EXALTAÇÃO DA LOGO (NEON BRILHANTE)
-   ========================================== */
 .navbar {
-    background: rgba(7, 7, 10, 0.95);
+    background: rgba(10, 10, 20, 0.95);
     backdrop-filter: blur(12px);
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #00E5FF;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
 }
 
-/* Foco total no nome com forte brilho de luzes Neon em volta */
+/* CORREÇÃO: Luzes Neon em volta do nome Exata Store */
 .logo {
-    font-size: 28px;
-    font-weight: 900;
-    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: bold;
+    color: #00E5FF;
     text-decoration: none;
-    letter-spacing: 2px;
-    /* Camadas de sombra para criar a luz em volta das letras */
-    text-shadow: 0 0 5px #00E5FF, 
-                 0 0 10px #00E5FF, 
-                 0 0 20px #00E5FF, 
-                 0 0 40px rgba(0, 229, 255, 0.7);
-    animation: pulsarLuz 2s infinite alternate ease-in-out;
+    text-shadow: 0 0 8px #00E5FF, 
+                 0 0 15px #00E5FF, 
+                 0 0 30px rgba(0, 229, 255, 0.8);
 }
 
-@keyframes pulsarLuz {
-    0% {
-        text-shadow: 0 0 4px #00E5FF, 0 0 10px #00E5FF, 0 0 18px rgba(0, 229, 255, 0.6);
-    }
-    100% {
-        text-shadow: 0 0 8px #00E5FF, 0 0 20px #00E5FF, 0 0 35px #00E5FF, 0 0 50px rgba(0, 229, 255, 0.9);
-    }
-}
-
-/* ==========================================
-   3. CAIXA DO FORMULÁRIO (CONTAINER ESCURO)
-   ========================================== */
 .container-formulario {
     max-width: 600px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(13, 13, 22, 0.9);
+    background: rgba(15, 23, 42, 0.8);
     border-radius: 12px;
-    border: 1px solid rgba(0, 229, 255, 0.4);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    backdrop-filter: blur(8px);
 }
 
 h2 {
     color: #ffffff;
     text-align: center;
     margin-bottom: 25px;
-    font-size: 22px;
-    text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
 }
 
 .campo-grupo {
@@ -86,15 +61,12 @@ label {
     font-size: 14px;
 }
 
-/* ==========================================
-   4. ENTRADAS DE DADOS (INPUTS E SELECTS)
-   ========================================== */
 input[type="text"],
 input[type="email"],
 select {
     width: 100%;
     padding: 12px;
-    background: #1e293b;
+    background: rgba(30, 41, 59, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     color: #ffffff;
@@ -106,28 +78,23 @@ select {
 input:focus, select:focus {
     outline: none;
     border-color: #00E5FF;
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
 
-/* ==========================================
-   5. BOTÃO DE ENVIAR
-   ========================================== */
 button[type="submit"] {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     background: #00E5FF;
     border: none;
     border-radius: 6px;
-    color: #000000;
+    color: #0a0a14;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
     transition: all 0.3s ease;
 }
 
 button[type="submit"]:hover {
     background: #ffffff;
     color: #00E5FF;
-    box-shadow: 0 0 25px #00E5FF;
 }
