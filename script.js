@@ -1,7 +1,7 @@
 // MATRIZ DE PRECIFICAÇÃO INTERNA SECRETA
 const CONFIG_PRECO_BASE = 150.00;
 const MULTIPLICADORES_GENERO = { leve: 1.0, medio: 1.3, pesado: 1.6 };
-const MULTIPLICADORES_PORTE = { pequeno: 1.0, intermediario: 1.5, profesional: 2.2 };
+const MULTIPLICADORES_PORTE = { pequeno: 1.0, intermediario: 1.5, profissional: 2.2 };
 const FATOR_URGENCIA = 1.3;
 
 // NÚMERO DO WHATSAPP DA EXATA STORE PARA O RELATÓRIO
@@ -57,25 +57,34 @@ formOrcamento.addEventListener('change', function(e) {
     if (e.target.name === 'porte-projeto') processarFichaTecnica();
 });
 
-// DISPARO ASSÍNCRONO DIRECT-TO-EMAIL (WEB3FORMS INVISÍVEL)
+// DISPARO ASSÍNCRONO COM LAYOUT DE E-MAIL EMBUTIDO
 formOrcamento.addEventListener('submit', function(e) {
     e.preventDefault(); 
 
     const keyWeb3 = document.getElementById('web3forms-key').value;
     const nomeMaiusculo = nomeClienteInput.value.toUpperCase();
     
-    // Organiza a estrutura limpa dos dados estruturados
+    // Configura o envio utilizando a estrutura limpa e profissional do Web3Forms
     const dadosBriefing = {
         access_key: keyWeb3,
-        subject: "⚠️ NOVO BRIEFING: " + nomeMaiusculo,
-        "1. Destinatário Técnico": NUMERO_DESTINO_EXATA,
-        "2. Produtor / Artista": nomeClienteInput.value,
-        "3. WhatsApp do Solicitante": whatsClienteInput.value,
-        "4. Músicas Cadastradas": qtdFaixasInput.value,
-        "5. Gênero Mapeado": resumoGenero.innerText,
-        "6. Porte do Setup": resumoPorte.innerText,
-        "7. Regime Urgente": resumoPrazo.innerText,
-        "8. PREÇO CALCULADO PELO SISTEMA": inputHiddenPreco.value
+        subject: "⚡ NOVO BRIEFING RECEBIDO: " + nomeMaiusculo,
+        from_name: "Exata Store - Sistema",
+        
+        // Dados formatados linha por linha para criar uma tabela organizada no seu e-mail
+        "--- [ IDENTIFICAÇÃO DO PROJETO ] ---": " ",
+        "Produtor / Artista": nomeClienteInput.value,
+        "WhatsApp de Contato": whatsClienteInput.value,
+        
+        "--- [ FICHA TÉCNICA DO SHOW ] ---": " ",
+        "Quantidade de Músicas": qtdFaixasInput.value + " faixa(s)",
+        "Gênero / Complexidade": resumoGenero.innerText,
+        "Porte do Setup": resumoPorte.innerText,
+        "Regime de Urgência": resumoPrazo.innerText,
+        
+        "--- [ FINANCEIRO INTERNO ] ---": " ",
+        "VALOR ESTIMADO DO PROJETO": inputHiddenPreco.value,
+        
+        "------------------------------------": " "
     };
 
     // Faz a requisição POST silenciosa
