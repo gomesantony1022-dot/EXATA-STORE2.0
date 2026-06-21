@@ -1,9 +1,9 @@
-/* RESET E ESTILO GLOBAL - FONTE E FUNDO COM BEAMS DE MOVING HEADS CRISTALINOS */
+/* FUNDO DO SITE (ESTÚDIO ESCURO) */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-image: linear-gradient(rgba(10, 10, 18, 0.65), rgba(6, 6, 10, 0.85)), url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1920');
+    background-image: linear-gradient(rgba(10, 10, 20, 0.95), rgba(10, 10, 20, 0.95)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* NAVBAR */
+/* NAVBAR ORIGINAL */
 .navbar {
     background: rgba(10, 10, 20, 0.95);
     backdrop-filter: blur(12px);
@@ -21,93 +21,57 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #00E5FF;
-    box-shadow: 0 4px 25px rgba(0, 229, 255, 0.2);
 }
 
+/* NOME EXATA STORE COM NEON */
 .logo {
     font-size: 24px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.logo span {
+    font-weight: bold;
     color: #00E5FF;
+    text-decoration: none;
+    text-shadow: 0 0 8px #00E5FF, 
+                 0 0 15px #00E5FF, 
+                 0 0 30px rgba(0, 229, 255, 0.8);
 }
 
-.tagline {
-    font-size: 14px;
-    color: #b3b3b3;
-}
-
-/* LAYOUT CONTAINER */
-.container-orcamento {
-    max-width: 1200px;
+/* CAIXA DO FORMULÁRIO ORIGINAL */
+.container-formulario {
+    max-width: 600px;
     margin: 40px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 30px;
-}
-
-@media (max-width: 950px) {
-    .container-orcamento {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* CARDS MODELO GLASSMORPHISM */
-.card-formulario, .card-resultado {
-    background: rgba(15, 15, 28, 0.8);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
     padding: 30px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-    height: fit-content;
-}
-
-/* FORMULÁRIO */
-h2, h3 {
-    margin-top: 0;
-    color: #ffffff;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    backdrop-filter: blur(8px);
 }
 
 h2 {
-    font-size: 26px;
-    border-left: 4px solid #00E5FF;
-    padding-left: 12px;
-    margin-bottom: 5px;
-}
-
-.instrucoes {
-    color: #cccccc;
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 30px;
-}
-
-.grupo-campo {
+    color: #ffffff;
+    text-align: center;
     margin-bottom: 25px;
+}
+
+.campo-grupo {
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    font-weight: 600;
     margin-bottom: 8px;
-    color: #00E5FF;
+    color: #94a3b8;
     font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
+/* CAIXAS DE TEXTO E SELEÇÃO PADRONIZADAS */
 input[type="text"],
+input[type="email"],
 input[type="number"],
 select {
     width: 100%;
-    padding: 14px;
-    background: rgba(5, 5, 10, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
+    padding: 12px;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
     color: #ffffff;
     font-size: 16px;
     box-sizing: border-box;
@@ -117,121 +81,25 @@ select {
 input:focus, select:focus {
     outline: none;
     border-color: #00E5FF;
-    box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
 
-/* SELETORES DE PORTE (RADIO) */
-.opcoes-radio {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.radio-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.radio-label:hover {
-    background: rgba(0, 229, 255, 0.04);
-    border-color: rgba(0, 229, 255, 0.25);
-}
-
-.radio-label input[type="radio"] {
-    margin-top: 4px;
-    accent-color: #00E5FF;
-}
-
-.radio-label span {
-    color: #ffffff;
-    font-size: 14px;
-}
-
-.radio-label small {
-    color: #aaaaaa;
-    display: inline-block;
-    margin-top: 4px;
-}
-
-/* BOTÃO DE SUBMISSÃO */
-.btn-principal {
+/* BOTÃO DE ENVIAR (INTEIRO E LIMPO COMO ANTES) */
+button[type="submit"] {
     width: 100%;
-    background: linear-gradient(90deg, #00E5FF, #00B8D4);
-    color: #05050a;
+    padding: 14px;
+    background: #00E5FF;
     border: none;
-    padding: 16px;
+    border-radius: 6px;
+    color: #0a0a14;
     font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
+    box-sizing: border-box;
     transition: all 0.3s ease;
 }
 
-.btn-principal:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 229, 255, 0.5);
-}
-
-/* AREA LATERAL DO SHOW EM VIVO */
-.palco-container {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.6);
-    margin-bottom: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.gif-palco {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.overlay-palco {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: rgba(0, 229, 255, 0.2);
-    border: 1px solid #00E5FF;
-    padding: 4px 10px;
-    font-size: 11px;
-    font-weight: 700;
-    border-radius: 4px;
-    letter-spacing: 1px;
-    color: #ffffff;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-}
-
-.detalhes-resumo p {
-    display: flex;
-    justify-content: space-between;
-    margin: 14px 0;
-    color: #b3b3b3;
-    font-size: 14px;
-}
-
-.detalhes-resumo span {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-.status-analise {
-    margin-top: 20px;
-    background: rgba(0, 229, 255, 0.03);
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 229, 255, 0.15);
+button[type="submit"]:hover {
+    background: #ffffff;
+    color: #00E5FF;
 }
