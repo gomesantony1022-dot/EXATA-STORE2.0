@@ -3,106 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exata Store | Central de Briefing de Timecode</title>
+    <title>Exata Store — Briefing & Orçamento</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">Exata<span>Store</span></div>
-        <div class="tagline">Painel Técnico de Iluminação & Timecode</div>
-    </header>
+    <nav class="navbar">
+        <a href="#" class="logo">EXATA STORE</a>
+    </nav>
 
-    <main class="container-orcamento">
+    <div class="container-formulario">
+        <h2>Solicitação de Orçamento</h2>
         
-        <section class="card-formulario">
-            <h2>Cadastrar Novo Briefing de Show</h2>
-            <p class="instrucoes">Preencha os dados técnicos do projeto. O sistema processará as informações e notificará a equipe técnica da Exata Store de forma direta.</p>
+        <form id="form-orcamento">
+            <input type="hidden" id="web3forms-key" value="478c71c6-a637-416e-aed3-ee9700a2f826">
+            <input type="hidden" id="input-hidden-preco" name="preco">
 
-            <form id="form-orcamento">
-                <input type="hidden" id="web3forms-key" value="478c71c6-a637-416e-aed3-ee9700a2f826">
-                <input type="hidden" id="input-hidden-preco" name="Valor Estimado (Interno)">
-
-                <h3>1. Identificação do Solicitante</h3>
-                <div class="grupo-campo">
-                    <label for="nome-cliente">Nome do Produtor / Artista:</label>
-                    <input type="text" id="nome-cliente" name="Produtor_Artista" placeholder="Ex: DJ Alok / Banda Exata" required>
-                </div>
-                <div class="grupo-campo">
-                    <label for="whats-cliente">WhatsApp de Contato (com DDD):</label>
-                    <input type="text" id="whats-cliente" name="WhatsApp_Contato" placeholder="Ex: 12988114462" required>
-                </div>
-
-                <hr style="border-top: 1px dashed rgba(255,255,255,0.2); margin: 30px 0;">
-
-                <h3>2. Ficha Técnica do Show</h3>
-                <div class="grupo-campo">
-                    <label for="quantidade-faixas">Quantidade Total de Faixas (Músicas):</label>
-                    <input type="number" id="quantidade-faixas" name="Quantidade_Músicas" min="1" value="1" required>
-                </div>
-
-                <div class="grupo-campo">
-                    <label for="genero-musical">Gênero Musical / Complexidade:</label>
-                    <select id="genero-musical" name="Gênero_Musical" required>
-                        <option value="leve">Sertanejo Acústico / MPB / Pop Leve (Complexidade Baixa)</option>
-                        <option value="medio" selected>Rock / Pop / Funk / Sertanejo In Concert (Complexidade Média)</option>
-                        <option value="pesado">Eletrônica / EDM / Trap / Metal (Complexidade Alta - Muitos Cues)</option>
-                    </select>
-                </div>
-
-                <div class="grupo-campo">
-                    <label>Porte da Estrutura de Iluminação:</label>
-                    <p class="ajuda-campo" style="color: #b3b3b3; font-size: 13px; margin-bottom: 12px; margin-top: -4px; font-style: italic;">
-                        *Ligado diretamente à quantidade de fixtures (moving heads, canais DMX) e tamanho do mapa.
-                    </p>
-                    
-                    <div class="opcoes-radio">
-                        <label class="radio-label">
-                            <input type="radio" name="porte-projeto" value="pequeno" checked>
-                            <span><strong>Pequeno Porte (Setup Enxuto)</strong><br><small>Até 20/30 equipamentos. Ideal para bares, pistas compactas.</small></span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="porte-projeto" value="intermediario">
-                            <span><strong>Intermediário (Estrutura Média)</strong><br><small>Projetos médios, palcos de festivais regionais.</small></span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="porte-projeto" value="profissional">
-                            <span><strong>Profissional (Grande Porte / Artista Nacional)</strong><br><small>Centenas de equipamentos, efeitos pixel a pixel complexos.</small></span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="grupo-campo">
-                    <label for="prazo-entrega">Prazo Limite de Entrega:</label>
-                    <select id="prazo-entrega" name="Prazo_Entrega" required>
-                        <option value="normal">Normal (Até 15 dias úteis)</option>
-                        <option value="urgente">Urgente (Até 7 dias úteis) + Taxa de Urgência</option>
-                    </select>
-                </div>
-                
-                <button type="submit" id="btn-enviar-briefing" class="btn-principal">Submeter Projeto para Análise</button>
-            </form>
-        </section>
-
-        <section class="card-resultado">
-            <div class="palco-container">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Zid3R0OXp4Ym1vM29icm01b2N6N3ZnbWR0Nzd0Y2g5Mml5N3F4NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw.3o7TKU8NAsAn2YvLqM/giphy.gif" alt="Show Timecode Exata Store" class="gif-palco">
-                <div class="overlay-palco">LIVE DESIGN</div>
+            <div class="campo-grupo">
+                <label for="nome-cliente">Nome do Produtor / Artista</label>
+                <input type="text" id="nome-cliente" required placeholder="Digite seu nome">
             </div>
 
-            <div class="detalhes-resumo">
-                <p>Músicas Mapeadas: <span id="resumo-faixas">1</span></p>
-                <p>Perfil de Gênero: <span id="resumo-genero">Média</span></p>
-                <p>Porte Identificado: <span id="resumo-porte">Pequeno</span></p>
-                <p>Regime de Urgência: <span id="resumo-prazo">Não</span></p>
+            <div class="campo-grupo">
+                <label for="whats-cliente">WhatsApp de Contato</label>
+                <input type="text" id="whats-cliente" required placeholder="(00) 00000-0000">
             </div>
 
-            <div class="status-analise">
-                <p style="text-align: center; color: #00E5FF; font-weight: 600; margin-bottom: 5px; font-size: 14px; letter-spacing: 0.5px;">PROJETO INTEGRADO</p>
-                <small style="display: block; text-align: center; color: #e0e0e0; line-height: 1.4;">Os parâmetros de cues e canais DMX estão sendo estruturados. O relatório final será encaminhado diretamente para a mesa técnica.</small>
+            <div class="campo-grupo">
+                <label for="quantidade-faixas">Quantidade de Músicas</label>
+                <input type="number" id="quantidade-faixas" min="1" value="1" required style="width: 100%; padding: 12px; background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; color: #ffffff; font-size: 16px; box-sizing: border-box;">
             </div>
-        </section>
-    </main>
+
+            <div class="campo-grupo">
+                <label for="genero-musical">Gênero / Complexidade</label>
+                <select id="genero-musical" required>
+                    <option value="leve">Leve (Acústico / MPB / Indie)</option>
+                    <option value="medio" selected>Médio (Pop / Rock / Sertanejo)</option>
+                    <option value="pesado">Pesado (Eletrônico / Metal / Trap)</option>
+                </select>
+            </div>
+
+            <div class="campo-grupo">
+                <label>Porte do Setup</label>
+                <div style="display: flex; gap: 15px; margin-top: 5px;">
+                    <label style="display: flex; align-items: center; gap: 5px; color: #ffffff;">
+                        <input type="radio" name="porte-projeto" value="pequeno" checked> Pequeno
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px; color: #ffffff;">
+                        <input type="radio" name="porte-projeto" value="intermediario"> Intermediário
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px; color: #ffffff;">
+                        <input type="radio" name="porte-projeto" value="profissional"> Profissional
+                    </label>
+                </div>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="prazo-entrega">Regime de Urgência</label>
+                <select id="prazo-entrega" required>
+                    <option value="normal" selected>Não (Prazo Normal)</option>
+                    <option value="urgente">Sim (Urgente)</option>
+                </select>
+            </div>
+
+            <div id="painel-resumo" style="background: rgba(30, 41, 59, 0.5); padding: 15px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; border: 1px solid rgba(0, 229, 255, 0.1);">
+                <strong style="color: #00E5FF;">Resumo Técnico:</strong><br>
+                Músicas: <span id="resumo-faixas">1</span><br>
+                Gênero: <span id="resumo-genero">Médio</span><br>
+                Setup: <span id="resumo-porte">Pequeno</span><br>
+                Urgência: <span id="resumo-prazo">Não (Normal)</span>
+            </div>
+
+            <button type="submit">Enviar Briefing</button>
+        </form>
+    </div>
 
     <script src="script.js"></script>
 </body>
