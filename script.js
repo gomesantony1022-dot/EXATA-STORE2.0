@@ -39,17 +39,22 @@ function calcularPreco() {
     return "R$ " + subtotal.toFixed(2).replace('.', ',');
 }
 
-// Atualiza ao mudar opções
+// Atualização leve para não travar o teclado ou toque no celular
 formOrcamento.addEventListener('input', () => { if (inputHiddenPreco) inputHiddenPreco.value = calcularPreco(); });
 formOrcamento.addEventListener('change', () => { if (inputHiddenPreco) inputHiddenPreco.value = calcularPreco(); });
 
-// Envio corrigido para Mobile
+// Envio direto adaptado para Mobile
 formOrcamento.addEventListener('submit', function(e) {
     e.preventDefault(); 
 
     const keyWeb3 = document.getElementById('web3forms-key').value;
     const precoFinal = calcularPreco();
-    if (inputHiddenPreco) inputHiddenPreco.value = precoFinal;
+    
+    // Força a limpeza de atributos obrigatórios ocultos que travam o Android
+    if (inputHiddenPreco) {
+        inputHiddenPreco.removeAttribute('required');
+        inputHiddenPreco.value = precoFinal;
+    }
     
     const templateHTMLCliente = `
         <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; border: 1px solid #eee; padding: 20px; border-radius: 8px;">
@@ -102,4 +107,7 @@ formOrcamento.addEventListener('submit', function(e) {
 });
 
 // Inicializa o valor oculto
-if (inputHiddenPreco) inputHiddenPreco.value = calcularPreco();
+if (inputHiddenPreco) {
+    inputHiddenPreco.removeAttribute('required');
+    inputHiddenPreco.value = calcularPreco();
+}
