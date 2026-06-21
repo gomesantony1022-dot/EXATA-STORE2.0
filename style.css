@@ -1,5 +1,5 @@
 /* ==========================================
-   1. RESET E ESTILO GLOBAL (CÓDIGO ANTERIOR REESTRUTURADO)
+   1. RESET E ESTILO GLOBAL (NOVO FUNDO DE ESTÚDIO)
    ========================================== */
 body {
     margin: 0;
@@ -8,70 +8,63 @@ body {
     color: #ffffff;
     min-height: 100vh;
     
-    /* Configuração de fundo com animação de movimento ativa */
-    background-image: linear-gradient(rgba(10, 10, 20, 0.85), rgba(10, 10, 20, 0.85)), url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070') !important;
-    background-size: 400% 400% !important;
+    /* Imagem de estúdio/áudio profissional com tom escuro */
+    background-image: linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 0.85)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070') !important;
+    background-size: cover !important;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    animation: fundoAnimado 12s ease infinite !important;
-}
-
-/* Animação que faz o fundo se mover sozinho suavemente */
-@keyframes fundoAnimado {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 /* ==========================================
-   2. NAVBAR E LOGO ILUMINADA (MODIFICAÇÃO DE MOVIMENTO)
+   2. NAVBAR E EXALTAÇÃO DA LOGO (NEON BRILHANTE)
    ========================================== */
 .navbar {
-    background: rgba(10, 10, 20, 0.95);
+    background: rgba(7, 7, 10, 0.95);
     backdrop-filter: blur(12px);
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #00E5FF;
-    box-shadow: 0 4px 30px rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
 }
 
-/* Efeito Neon com pulsação forte no nome da Store */
+/* Foco total no nome com forte brilho de luzes Neon em volta */
 .logo {
-    font-size: 26px;
-    font-weight: bold;
-    color: #00E5FF !important;
+    font-size: 28px;
+    font-weight: 900;
+    color: #ffffff !important;
     text-decoration: none;
-    display: inline-block;
-    text-shadow: 0 0 8px #00E5FF, 0 0 20px rgba(0, 229, 255, 0.6);
-    animation: neonPulsante 2.5s infinite alternate ease-in-out;
+    letter-spacing: 2px;
+    /* Camadas de sombra para criar a luz em volta das letras */
+    text-shadow: 0 0 5px #00E5FF, 
+                 0 0 10px #00E5FF, 
+                 0 0 20px #00E5FF, 
+                 0 0 40px rgba(0, 229, 255, 0.7);
+    animation: pulsarLuz 2s infinite alternate ease-in-out;
 }
 
-@keyframes neonPulsante {
+@keyframes pulsarLuz {
     0% {
-        transform: scale(1);
-        text-shadow: 0 0 8px #00E5FF, 0 0 15px rgba(0, 229, 255, 0.4);
+        text-shadow: 0 0 4px #00E5FF, 0 0 10px #00E5FF, 0 0 18px rgba(0, 229, 255, 0.6);
     }
     100% {
-        transform: scale(1.05);
-        text-shadow: 0 0 15px #00E5FF, 0 0 30px rgba(0, 229, 255, 0.9);
+        text-shadow: 0 0 8px #00E5FF, 0 0 20px #00E5FF, 0 0 35px #00E5FF, 0 0 50px rgba(0, 229, 255, 0.9);
     }
 }
 
 /* ==========================================
-   3. CAIXA DO FORMULÁRIO (CONTAINER)
+   3. CAIXA DO FORMULÁRIO (CONTAINER ESCURO)
    ========================================== */
 .container-formulario {
     max-width: 600px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(13, 13, 22, 0.9);
     border-radius: 12px;
-    border: 1px solid rgba(0, 229, 255, 0.3);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
 }
 
 h2 {
@@ -79,7 +72,7 @@ h2 {
     text-align: center;
     margin-bottom: 25px;
     font-size: 22px;
-    text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
 }
 
 .campo-grupo {
@@ -101,7 +94,7 @@ input[type="email"],
 select {
     width: 100%;
     padding: 12px;
-    background: rgba(30, 41, 59, 0.8);
+    background: #1e293b;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     color: #ffffff;
@@ -113,12 +106,11 @@ select {
 input:focus, select:focus {
     outline: none;
     border-color: #00E5FF;
-    box-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
-    background: rgba(30, 41, 59, 0.9);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
 }
 
 /* ==========================================
-   5. BOTÃO DE ENVIAR (BRILHO INTERATIVO)
+   5. BOTÃO DE ENVIAR
    ========================================== */
 button[type="submit"] {
     width: 100%;
@@ -126,7 +118,7 @@ button[type="submit"] {
     background: #00E5FF;
     border: none;
     border-radius: 6px;
-    color: #0a0a14;
+    color: #000000;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -137,6 +129,5 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background: #ffffff;
     color: #00E5FF;
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
-    transform: translateY(-2px);
+    box-shadow: 0 0 25px #00E5FF;
 }
