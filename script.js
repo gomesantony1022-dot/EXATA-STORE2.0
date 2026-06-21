@@ -17,7 +17,7 @@ const resumoPorte = document.getElementById('resumo-porte');
 const resumoPrazo = document.getElementById('resumo-prazo');
 const inputHiddenPreco = document.getElementById('input-hidden-preco');
 
-function processarFichaTecnica() {
+function calcularPreco() {
     const faixas = parseInt(qtdFaixasInput.value) || 1;
     const genero = generoSelect.value;
     const elementoPorte = document.querySelector('input[name="porte-projeto"]:checked');
@@ -25,34 +25,31 @@ function processarFichaTecnica() {
     const prazo = prazoSelect.value;
 
     let subtotal = faixas * CONFIG_PRECO_BASE;
-    subtotal *= MULTIPLICADORES_GENERO[genero];
+    subtotal *= MULTIPLICADORES_GENERO[genero] || 1.0;
     subtotal *= MULTIPLICADORES_PORTE[porte] || 1.0;
     if (prazo === 'urgente') subtotal *= FATOR_URGENCIA;
 
-    resumoFaixas.innerText = faixas;
-    resumoGenero.innerText = generoSelect.options[generoSelect.selectedIndex].text.split('(')[0].trim();
+    if (resumoFaixas) resumoFaixas.innerText = faixas;
+    if (resumoGenero) resumoGenero.innerText = generoSelect.options[generoSelect.selectedIndex].text.split('(')[0].trim();
     
     const labelsPorte = { pequeno: "Pequeno", intermediario: "Intermediário", profissional: "Profissional" };
-    resumoPorte.innerText = labelsPorte[porte];
-    resumoPrazo.innerText = prazo === 'urgente' ? "Sim (Urgente)" : "Não (Normal)";
+    if (resumoPorte) resumoPorte.innerText = labelsPorte[porte] || "Pequeno";
+    if (resumoPrazo) resumoPrazo.innerText = prazo === 'urgente' ? "Sim (Urgente)" : "Não (Normal)";
 
-    if (inputHiddenPreco) {
-        inputHiddenPreco.value = "R$ " + subtotal.toFixed(2).replace('.', ',');
-    }
+    return "R$ " + subtotal.toFixed(2).replace('.', ',');
 }
 
-qtdFaixasInput.addEventListener('input', processarFichaTecnica);
-generoSelect.addEventListener('change', processarFichaTecnica);
-prazoSelect.addEventListener('change', processarFichaTecnica);
-formOrcamento.addEventListener('change', function(e) {
-    if (e.target.name === 'porte-projeto') processarFichaTecnica();
-});
+// Atualiza ao mudar opções
+formOrcamento.addEventListener('input', () => { if (inputHiddenPreco) inputHiddenPreco.value = calcularPreco(); });
+formOrcamento.addEventListener('change', () => { if (inputHiddenPreco) inputHiddenPreco.value = calcularPreco(); });
 
+// Envio corrigido para Mobile
 formOrcamento.addEventListener('submit', function(e) {
     e.preventDefault(); 
 
     const keyWeb3 = document.getElementById('web3forms-key').value;
-    const precoFinal = inputHiddenPreco.value;
+    const precoFinal = calcularPreco();
+    if (inputHiddenPreco) inputHiddenPreco.value = precoFinal;
     
     const templateHTMLCliente = `
         <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; border: 1px solid #eee; padding: 20px; border-radius: 8px;">
@@ -65,9 +62,9 @@ formOrcamento.addEventListener('submit', function(e) {
             <p><strong>Resumo do Show:</strong></p>
             <ul>
                 <li>Músicas: ${qtdFaixasInput.value}</li>
-                <li>Gênero: ${resumoGenero.innerText}</li>
-                <li>Setup: ${resumoPorte.innerText}</li>
-                <li>Urgente: ${resumoPrazo.innerText}</li>
+                <li>Gênero: ${resumoGenero ? resumoGenero.innerText : ''}</li>
+                <li>Setup: ${resumoPorte ? resumoPorte.innerText : ''}</li>
+                <li>Urgente: ${resumoPrazo ? resumoPrazo.innerText : ''}</li>
             </ul>
             <p style="font-size: 11px; color: #94a3b8; margin-top: 20px;">* Válido por 15 dias. Entraremos em contato via WhatsApp (${whatsClienteInput.value}).</p>
         </div>
@@ -94,11 +91,15 @@ formOrcamento.addEventListener('submit', function(e) {
     })
     .then(response => {
         if (response.ok) {
-            alert("✓ Orçamento enviado para o seu e-mail e para o cliente!");
+            alert("✓ Orçamento enviado com sucesso!");
             formOrcamento.reset();
-            processarFichaTecnica();
+            if (inputHiddenPreco) inputHiddenPreco.value = calcularPreco();
+        } else {
+            alert("Erro ao enviar. Verifique os campos.");
         }
-    });
+    })
+    .catch(() => alert("Erro de conexão no celular."));
 });
 
-processarFichaTecnica();
+// Inicializa o valor oculto
+if (inputHiddenPreco) inputHiddenPreco.value = calcularPreco();
