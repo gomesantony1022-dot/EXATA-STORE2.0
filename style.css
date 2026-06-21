@@ -1,26 +1,32 @@
-/* RESET E ESTILO GLOBAL - FONTE E FUNDO COM BEAMS */
+/* ==========================================
+   1. RESET E ESTILO GLOBAL (CÓDIGO ANTERIOR REESTRUTURADO)
+   ========================================== */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-image: linear-gradient(rgba(10, 10, 20, 0.95), rgba(10, 10, 20, 0.95)), url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070');
-    background-size: 400% 400% !important; /* Expandido para permitir movimento */
+    color: #ffffff;
+    min-height: 100vh;
+    
+    /* Configuração de fundo com animação de movimento ativa */
+    background-image: linear-gradient(rgba(10, 10, 20, 0.85), rgba(10, 10, 20, 0.85)), url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070') !important;
+    background-size: 400% 400% !important;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #ffffff;
-    min-height: 100vh;
-    animation: fundoAnimado 15s ease infinite !important; /* Movimentação fluida do fundo */
+    animation: fundoAnimado 12s ease infinite !important;
 }
 
-/* ANIMAÇÃO DE MOVIMENTO DO FUNDO */
+/* Animação que faz o fundo se mover sozinho suavemente */
 @keyframes fundoAnimado {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* NAVBAR */
+/* ==========================================
+   2. NAVBAR E LOGO ILUMINADA (MODIFICAÇÃO DE MOVIMENTO)
+   ========================================== */
 .navbar {
     background: rgba(10, 10, 20, 0.95);
     backdrop-filter: blur(12px);
@@ -29,48 +35,51 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #00E5FF;
-    box-shadow: 0 4px 25px rgba(0, 229, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 229, 255, 0.3);
 }
 
-/* NOME DA STORE ILUMINADO E PULSANTE */
+/* Efeito Neon com pulsação forte no nome da Store */
 .logo {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
-    color: #00E5FF;
+    color: #00E5FF !important;
     text-decoration: none;
-    text-shadow: 0 0 10px rgba(0, 229, 255, 0.6), 
-                 0 0 20px rgba(0, 229, 255, 0.4);
-    animation: brilhoPulsante 3s infinite alternate ease-in-out;
+    display: inline-block;
+    text-shadow: 0 0 8px #00E5FF, 0 0 20px rgba(0, 229, 255, 0.6);
+    animation: neonPulsante 2.5s infinite alternate ease-in-out;
 }
 
-@keyframes brilhoPulsante {
+@keyframes neonPulsante {
     0% {
         transform: scale(1);
-        filter: drop-shadow(0 0 2px rgba(0, 229, 255, 0.4));
+        text-shadow: 0 0 8px #00E5FF, 0 0 15px rgba(0, 229, 255, 0.4);
     }
     100% {
-        transform: scale(1.03);
-        filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.9));
+        transform: scale(1.05);
+        text-shadow: 0 0 15px #00E5FF, 0 0 30px rgba(0, 229, 255, 0.9);
     }
 }
 
-/* ESTILIZAÇÃO DO FORMULÁRIO E COMPONENTES */
+/* ==========================================
+   3. CAIXA DO FORMULÁRIO (CONTAINER)
+   ========================================== */
 .container-formulario {
     max-width: 600px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.85);
     border-radius: 12px;
-    border: 1px solid rgba(0, 229, 255, 0.2);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
     color: #ffffff;
     text-align: center;
     margin-bottom: 25px;
-    text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+    font-size: 22px;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
 }
 
 .campo-grupo {
@@ -84,12 +93,15 @@ label {
     font-size: 14px;
 }
 
+/* ==========================================
+   4. ENTRADAS DE DADOS (INPUTS E SELECTS)
+   ========================================== */
 input[type="text"],
 input[type="email"],
 select {
     width: 100%;
     padding: 12px;
-    background: rgba(30, 41, 59, 0.7);
+    background: rgba(30, 41, 59, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     color: #ffffff;
@@ -101,13 +113,16 @@ select {
 input:focus, select:focus {
     outline: none;
     border-color: #00E5FF;
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+    background: rgba(30, 41, 59, 0.9);
 }
 
-/* BOTÃO DE ENVIAR PULSANTE E NEON */
+/* ==========================================
+   5. BOTÃO DE ENVIAR (BRILHO INTERATIVO)
+   ========================================== */
 button[type="submit"] {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     background: #00E5FF;
     border: none;
     border-radius: 6px;
@@ -120,8 +135,8 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
-    transform: translateY(-2px);
     background: #ffffff;
     color: #00E5FF;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
+    transform: translateY(-2px);
 }
