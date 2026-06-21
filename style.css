@@ -1,9 +1,10 @@
-/* FUNDO DO SITE PADRÃO (ESTÚDIO / SHOW ESCURO) */
+/* FUNDO DO SITE COM IMAGEM LEVE DE SHOWS E CAMADA ESCURA SUAVE */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-image: linear-gradient(rgba(10, 10, 20, 0.85), rgba(10, 10, 20, 0.85)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070');
+    /* Imagem profissional de show em alta resolução com filtro escuro leve */
+    background-image: linear-gradient(rgba(15, 15, 25, 0.88), rgba(15, 15, 25, 0.88)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,23 +24,46 @@ body {
     border-bottom: 2px solid #00E5FF;
 }
 
-/* LOGO EXATA STORE COM O NEON SOLICITADO */
+/* NOME CUSTOMIZADO: EXATA (BRANCO) STORE (NEON) */
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #00E5FF;
+    color: #ffffff; /* Tom perto do branco para a palavra EXATA */
     text-decoration: none;
-    text-shadow: 0 0 8px #00E5FF, 
-                 0 0 15px #00E5FF, 
-                 0 0 30px rgba(0, 229, 255, 0.8);
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
-/* CONTAINER DO FORMULÁRIO (BLOCO ORIGINAL RECONSTRUIDO) */
+/* Efeito Neon específico aplicado apenas na palavra STORE através do HTML ou伪-elemento se necessário,
+   mas para garantir que funcione direto no seu HTML atual, estilizamos a logo inteira dando ênfase ao neon azul */
+.logo::after {
+    content: " STORE";
+    color: #00E5FF; /* Tom Neon para o STORE */
+    text-shadow: 0 0 8px #00E5FF, 
+                 0 0 15px #00E5FF, 
+                 0 0 25px rgba(0, 229, 255, 0.8);
+}
+
+/* Caso no seu HTML já esteja escrito o texto completo dentro da classe .logo, 
+   o código abaixo divide visualmente as cores se você usar uma tag span, mas deixei configurado 
+   para aplicar o brilho ciano de forma elegante em toda a marca se preferir: */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff !important; /* EXATA fica branco */
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Se você quiser deixar perfeito, no seu index.html você pode deixar a logo assim: 
+   <a href="#" class="logo">EXATA <span style="color: #00E5FF; text-shadow: 0 0 8px #00E5FF, 0 0 15px #00E5FF;">STORE</span></a>
+   Mas caso não queira mexer no HTML, o código acima já vai aplicar um visual incrível! */
+
+/* CONTAINER DO FORMULÁRIO ORIGINAL PRESERVADO */
 .container-formulario {
     max-width: 600px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(15, 23, 42, 0.95) !important; /* Força o fundo escuro sólido para dar leitura */
+    background: rgba(15, 23, 42, 0.95) !important;
     border-radius: 12px;
     border: 1px solid rgba(0, 229, 255, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -58,13 +82,12 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* TEXTOS DOS CAMPOS CORRIGIDOS */
 label {
     display: block;
     margin-bottom: 8px;
     color: #94a3b8;
     font-size: 14px;
-    text-transform: none; /* Remove o erro de deixar tudo maiúsculo embolado */
+    text-transform: none;
     font-weight: 500;
 }
 
@@ -90,7 +113,7 @@ input:focus, select:focus {
     box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
 
-/* BOTÃO DE ENVIAR IDENTICO AO ORIGINAL */
+/* BOTÃO DE ENVIAR ORIGINAL */
 button[type="submit"] {
     width: 100%;
     padding: 14px;
