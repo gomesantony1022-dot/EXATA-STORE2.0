@@ -1,9 +1,9 @@
-/* FUNDO DO SITE (ESTÚDIO ESCURO) */
+/* FUNDO DO SITE PADRÃO (ESTÚDIO / SHOW ESCURO) */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-image: linear-gradient(rgba(10, 10, 20, 0.95), rgba(10, 10, 20, 0.95)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070');
+    background-image: linear-gradient(rgba(10, 10, 20, 0.85), rgba(10, 10, 20, 0.85)), url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@ body {
     border-bottom: 2px solid #00E5FF;
 }
 
-/* NOME EXATA STORE COM NEON */
+/* LOGO EXATA STORE COM O NEON SOLICITADO */
 .logo {
     font-size: 24px;
     font-weight: bold;
@@ -34,42 +34,48 @@ body {
                  0 0 30px rgba(0, 229, 255, 0.8);
 }
 
-/* CAIXA DO FORMULÁRIO ORIGINAL */
+/* CONTAINER DO FORMULÁRIO (BLOCO ORIGINAL RECONSTRUIDO) */
 .container-formulario {
     max-width: 600px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.95) !important; /* Força o fundo escuro sólido para dar leitura */
     border-radius: 12px;
     border: 1px solid rgba(0, 229, 255, 0.2);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
 }
 
 h2 {
     color: #ffffff;
     text-align: center;
+    margin-top: 0;
     margin-bottom: 25px;
+    font-size: 24px;
 }
 
 .campo-grupo {
     margin-bottom: 20px;
 }
 
+/* TEXTOS DOS CAMPOS CORRIGIDOS */
 label {
     display: block;
     margin-bottom: 8px;
     color: #94a3b8;
     font-size: 14px;
+    text-transform: none; /* Remove o erro de deixar tudo maiúsculo embolado */
+    font-weight: 500;
 }
 
-/* CAIXAS DE TEXTO E SELEÇÃO PADRONIZADAS */
+/* CAIXAS DE ENTRADA DO SEU SITE ORIGINAL */
 input[type="text"],
 input[type="email"],
 input[type="number"],
 select {
     width: 100%;
     padding: 12px;
-    background: rgba(30, 41, 59, 0.7);
+    background: rgba(30, 41, 59, 0.8) !important;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     color: #ffffff;
@@ -84,7 +90,7 @@ input:focus, select:focus {
     box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
 
-/* BOTÃO DE ENVIAR (INTEIRO E LIMPO COMO ANTES) */
+/* BOTÃO DE ENVIAR IDENTICO AO ORIGINAL */
 button[type="submit"] {
     width: 100%;
     padding: 14px;
@@ -97,6 +103,7 @@ button[type="submit"] {
     cursor: pointer;
     box-sizing: border-box;
     transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
 button[type="submit"]:hover {
