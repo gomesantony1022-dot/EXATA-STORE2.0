@@ -52,14 +52,25 @@ formOrcamento.addEventListener('submit', function(e) {
         inputHiddenPreco.value = precoFinal;
     }
 
+    // MAPEIA EXATAMENTE O TEXTO QUE O CLIENTE SELECIONOU PARA IR DETALHADO NO E-MAIL
+    const generoSelecionado = generoSelect.options[generoSelect.selectedIndex].text;
+    const elementoPorte = document.querySelector('input[name="porte-projeto"]:checked');
+    const labelsPorte = { pequeno: "Pequeno", intermediario: "Intermediário", profissional: "Profissional" };
+    const porteSelecionado = elementoPorte ? labelsPorte[elementoPorte.value] : "Pequeno";
+    const urgenciaSelecionada = prazoSelect.options[prazoSelect.selectedIndex].text;
+
     const dadosBriefing = {
         access_key: keyWeb3,
-        subject: "⚡ ORÇAMENTO EXATA STORE: " + nomeClienteInput.value.toUpperCase(),
+        subject: "⚡ NOVO BRIEFING: " + nomeClienteInput.value.toUpperCase(),
         from_name: "Exata Store",
         
-        "Artista": nomeClienteInput.value,
-        "WhatsApp": whatsClienteInput.value,
-        "Preço Estimado": precoFinal
+        "1. Produtor / Artista": nomeClienteInput.value,
+        "2. WhatsApp de Contato": whatsClienteInput.value,
+        "3. Quantidade de Músicas": qtdFaixasInput.value + " faixa(s)",
+        "4. Gênero Escolhido": generoSelecionado,
+        "5. Porte do Setup": porteSelecionado,
+        "6. Regime de Urgência": urgenciaSelecionada,
+        "7. Preço Calculado pelo Sistema": precoFinal
     };
 
     fetch('https://api.web3forms.com/submit', {
