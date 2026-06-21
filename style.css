@@ -1,9 +1,8 @@
-/* RESET E ESTILO GLOBAL - NOVA IMAGEM DE FUNDO COM BEAMS REAIS E NITIDOS */
+/* RESET E ESTILO GLOBAL - FONTE E FUNDO COM BEAMS DE MOVING HEADS CRISTALINOS */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    /* Imagem de alta definição focada em Moving Heads cortando a fumaça real de palco */
     background-image: linear-gradient(rgba(10, 10, 18, 0.65), rgba(6, 6, 10, 0.85)), url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1920');
     background-size: cover;
     background-position: center;
@@ -46,7 +45,7 @@ body {
     margin: 40px auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 1fr 400px; /* Aumentado levemente para destacar a área visual */
+    grid-template-columns: 1fr 400px;
     gap: 30px;
 }
 
@@ -56,7 +55,7 @@ body {
     }
 }
 
-/* CARDS MODELO GLASSMORPHISM AVANÇADO */
+/* CARDS MODELO GLASSMORPHISM */
 .card-formulario, .card-resultado {
     background: rgba(15, 15, 28, 0.8);
     backdrop-filter: blur(15px);
@@ -121,7 +120,7 @@ input:focus, select:focus {
     box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
 }
 
-/* SELETORES DE PORTE */
+/* SELETORES DE PORTE (RADIO) */
 .opcoes-radio {
     display: flex;
     flex-direction: column;
@@ -183,14 +182,7 @@ input:focus, select:focus {
     box-shadow: 0 6px 25px rgba(0, 229, 255, 0.5);
 }
 
-/* CARD LATERIAL COM CONTAINER DO SHOW VIVO */
-.card-resultado {
-    position: sticky;
-    top: 30px;
-    padding: 20px; /* Reduzido o padding interno para valorizar o palco */
-    border-top: 4px solid #00E5FF;
-}
-
+/* AREA LATERAL DO SHOW EM VIVO */
 .palco-container {
     width: 100%;
     height: 200px;
